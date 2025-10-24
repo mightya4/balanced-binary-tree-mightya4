@@ -17,5 +17,6 @@ void insert(BTNode **, int);
 BTNode *search(BTNode *, int);
 void release_tree(BTNode *);
 BTNode *build_balanced_bst(int *, int);
+int compare_int_elem(const void *, const void *);
 
 #endif  // BT_UTILS_H

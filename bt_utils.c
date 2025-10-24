@@ -62,5 +62,24 @@ void release_tree(BTNode *node) {
  */
 BTNode *build_balanced_bst(int *data, int n) {
     // TODO: Implement this function to build a balanced BST.
-    return NULL;
+    int *root = NULL;
+    int med_num = n / 2;
+    int *sorted_data = { 0 };
+
+    sorted_data = (int *)malloc(sizeof(data) * sizeof(int));
+
+    if(sorted_data == NULL) {
+        printf("Build Balanaced Binary Search Tree Function: Failed to allocate data on build");
+        return 1;
+    }
+    sorted_data = qsort(data, sizeof(data)/sizeof(data[0]), sizeof(int *), compare_elem);
+
+
+    return root;
+}
+
+int compare_int_elem(const void *elem_ptr, const void *nxt_elem_ptr) {
+    const char *const one_int = elem_ptr;
+    const char *const two_int = nxt_elem_ptr;
+
 }
