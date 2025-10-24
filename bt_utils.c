@@ -64,16 +64,12 @@ BTNode *build_balanced_bst(int *data, int n) {
     // TODO: Implement this function to build a balanced BST.
     int *root = NULL;
     int med_num = n / 2;
-    int *sorted_data = { 0 };
-
-    sorted_data = (int *)malloc(sizeof(data) * sizeof(int));
-
-    if(sorted_data == NULL) {
-        printf("Build Balanaced Binary Search Tree Function: Failed to allocate data on build");
-        return 1;
-    }
-    sorted_data = qsort(data, sizeof(data)/sizeof(data[0]), sizeof(int *), compare_elem);
-
+    
+    qsort(data, sizeof(data)/sizeof(data[0]), sizeof(int *), compare_int_elem);
+    for(int i = 0; i < n; i++) {
+        printf("%d\n",data[i]);
+    }  
+    root = data[med_num];
 
     return root;
 }
@@ -81,5 +77,11 @@ BTNode *build_balanced_bst(int *data, int n) {
 int compare_int_elem(const void *elem_ptr, const void *nxt_elem_ptr) {
     const char *const one_int = elem_ptr;
     const char *const two_int = nxt_elem_ptr;
-
+    if (two_int < one_int) {
+        return -1;
+    } else if ( two_int > one_int) {
+        return 1;
+    } else {
+        return 0;
+    }
 }
